@@ -11,20 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223053853) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 0) do
 
   create_table "artist", force: true do |t|
     t.string "name", limit: 100, null: false
   end
 
   add_index "artist", ["name"], name: "name", unique: true, using: :btree
-
-  create_table "artists", force: true do |t|
-    t.string "name", null: false
-  end
 
   create_table "key", force: true do |t|
     t.string "camelot_key", limit: 10,  null: false
