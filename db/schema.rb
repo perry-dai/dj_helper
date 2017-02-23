@@ -13,30 +13,4 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "artist", force: true do |t|
-    t.string "name", limit: 100, null: false
-  end
-
-  add_index "artist", ["name"], name: "name", unique: true, using: :btree
-
-  create_table "key", force: true do |t|
-    t.string "camelot_key", limit: 10,  null: false
-    t.string "musical_key", limit: 100, null: false
-  end
-
-  create_table "track", force: true do |t|
-    t.string  "title",        limit: 100, null: false
-    t.integer "artist_id",                null: false
-    t.string  "artist_name",  limit: 100, null: false
-    t.string  "remixed_by",   limit: 100
-    t.integer "key_id",                   null: false
-    t.string  "camelot_key",  limit: 10,  null: false
-    t.string  "musical_key",  limit: 100, null: false
-    t.string  "genre",        limit: 100
-    t.string  "record_label", limit: 100
-  end
-
-  add_index "track", ["artist_id"], name: "artist_id", using: :btree
-  add_index "track", ["key_id"], name: "key_id", using: :btree
-
 end
