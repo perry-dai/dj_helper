@@ -11,13 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223074035) do
+ActiveRecord::Schema.define(version: 20170224031046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", force: true do |t|
-    t.string "name", null: false
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
+
+  add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
+
+  create_table "keys", force: true do |t|
+    t.string   "camelot_key", null: false
+    t.string   "musical_key", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "keys", ["camelot_key"], name: "index_keys_on_camelot_key", using: :btree
+  add_index "keys", ["musical_key"], name: "index_keys_on_musical_key", using: :btree
 
 end
