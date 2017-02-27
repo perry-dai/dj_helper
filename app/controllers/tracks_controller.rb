@@ -4,7 +4,9 @@ class TracksController < ApplicationController
   # GET /tracks
   # GET /tracks.json
   def index
-    @tracks = Track.all
+
+    @tracks_grid = TracksGrid.new(params[:tracks_grid])
+    @assets = @tracks_grid.assets.page(params[:page])
   end
 
   # GET /tracks/1
